@@ -1,7 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import Logo from '../../public/Images/carworld.png';
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const {user,logOut}=useContext(AuthContext)
+  const handleLogOut =()=>{
+    logOut()
+  }
 const navLinks = <>
 <ul className="lg:flex  items-center gap-5 text-xl font-medium">
   <li>
@@ -63,8 +69,8 @@ return (
       </ul>
     </div>
 <div>
-<a className="btn btn-ghost  normal-case text-3xl ">
-     <img className="w-[80px] h-[70px] rounded-3xl" src={Logo}></img>
+<a className="btn btn-ghost normal-case md:text-3xl ">
+     <img className=" w-[50px] h-[50px] md:w-[80px] md:h-[70px] rounded-3xl" src={Logo}></img>
 <span className="text-orange-600">CarWorld</span></a>
 </div>
   </div>
@@ -76,20 +82,19 @@ return (
   <div className="navbar-end">
    <ul>
   <li>
- <NavLink
-to="/login"
- className={({ isActive, isPending }) =>
-  isPending ? "pending" : isActive ? "text-red-600" : ""
- }
->
-<div className="text-xl font-semibold">Login</div>
- </NavLink>
+{
+  user ? <button className="btn btn-error" onClick={handleLogOut}>Logout</button> 
+   :<NavLink
+   to="/login"
+    className={({ isActive, isPending }) =>
+     isPending ? "pending" : isActive ? "text-red-600" : ""
+    }
+   >
+   <div className="text-xl font-semibold">Login</div>
+    </NavLink>
+}
  </li>
  </ul>
-   {/* <img className="w-[50px] mr-2" src={authorImg}></img> */}
-   {/* <p className="text-center text-lg font-medium">New ? Please
-         <Link className="text-blue-500  p-2 font-bold" to='/register'>
-          Register</Link></p> */}
   </div>
 </div>                                                                                         
  </div>

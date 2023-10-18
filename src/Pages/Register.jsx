@@ -1,9 +1,65 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
 
+ const {register}= useContext(AuthContext)
     const handleRegister =(e)=>{
-       e.preventDefault()
+       e.preventDefault();
+       console.log(e.currentTarget);
+       const form = new FormData(e.currentTarget)
+       const name = form.get('name')
+       const email = form.get('email')
+       const password = form.get('password')
+       console.log(name,email,password);
+
+    // validation part
+    if(password.length < 6){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'password must be at least 6 characters!',
+      })
+      return;
+    }
+    else if(!/[A-Z]/.test(password)){
+      Swal.fire({
+        icon: 'error',
+        title: 'oopss ',
+        text: 'password must be one capital letter',
+      })
+      return;
+    }
+    else if(!/[@#$%&?]/.test(password)){
+      Swal.fire({
+        icon: 'error',
+        title: 'oopss ',
+        text: 'password must be a special characters',
+      })
+      return;
+    }
+    register(email,password)
+    .then(result=>{
+      console.log(result.user)
+      Swal.fire({
+        icon: 'success',
+        title: 'Done ',
+        text: 'your register have  successfully',
+      })
+      return;
+    })
+    .catch(error=>{
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+    })
+
     }
 return (
     <div className="hero min-h-screen bg-base-200">
