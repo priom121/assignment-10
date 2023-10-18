@@ -37,7 +37,7 @@ const handleLogin =(e)=>{
          </form>
          <div className="py-4 text-center"><button className="btn  btn-outline btn-warning ">
            Google Login</button></div>
-         <p className="text-center text-lg font-medium">New ? Please
+         <p className="text-center pb-5 text-lg font-medium">New ? Please
          <Link className="text-blue-500  p-2 font-bold" to='/register'>
           Register</Link></p>
        </div>
