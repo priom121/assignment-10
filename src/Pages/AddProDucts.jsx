@@ -45,6 +45,13 @@ const handleAdd =(e)=>{
   .then(res=>res.json())
   .then(data=>{
     console.log(data);
+       if(data.insertedID){
+      Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: ' user added successfully',
+      })
+    }
   })
 
 }
@@ -71,9 +78,19 @@ return (
         </div>
         <div className="w-1/2 mx-auto mt-5 ">
         <span className="label-text text-base">Brand Name</span>
-        <label className="input-group">
-       <input type="text" placeholder="brand Name" name="brand" className="input input-bordered w-full" />
+        <label className="input-group  ">
+        <select placeholder="brand Name" name="brand"
+         className="w-full select select-bordered  ">
+            <option selected>Toyota</option>
+            <option>Ford</option>
+            <option>BMW</option>
+            <option>Mercedes-Benz</option>
+            <option>Tesla</option>
+            <option>Honda</option>
+</select>
+       {/* <input type="text" placeholder="brand Name" name="brand" className="input input-bordered w-full" /> */}
         </label>
+       
         </div>
         <div className="w-1/2 mx-auto mt-5 ">
         <span className="label-text text-base">Type</span>

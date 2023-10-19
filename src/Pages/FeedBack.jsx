@@ -5,12 +5,12 @@ return (
  <div className="py-10 border">
      <h2 className="text-orange-500 text-3xl text-center font-bold">
     CUSTOMER FEEDBACK</h2> 
-<div className="flex justify-evenly max-w-screen-xl mx-auto">
+<div className="md:flex justify-evenly max-w-screen-xl mx-auto">
 <div className="card w-72 shadow-xl mb-5">
   <div className="card-body items-center text-center ">
    <img src={author1}></img>
-   <p className='text-orange-600 font-bold'>California</p>                           
   <h3 className="text-orange-500 text-3xl">jimmy marco</h3>
+  <p className='text-orange-600 font-bold'>California</p>
    <p>they have got my project with the competation with highly skilled.
     well organized and experienced teams professional mates pashing
    </p>
@@ -19,8 +19,8 @@ return (
     <div className="card w-72 shadow-xl mb-5">
   <div className="card-body items-center text-center ">
   <img src={author2}></img>
-  <p className='text-orange-600 font-bold'>Los Angels</p>
   <h3 className="text-orange-500 text-3xl">Vendana zoe</h3>
+  <p className='text-orange-600 font-bold'>Los Angels</p>
    <p>
     How this mistaken ideas denouncing pleasure and pain was born and will
     give you complete account the system expound great.                          

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const AllCards = ({automotive}) => {
-const {_id,photo,brand} = automotive
+ const {_id,photo,brand} = automotive;
  return (
  <div>
   <Link to='/details'>
