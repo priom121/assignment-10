@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import AllCards from "./AllCards";
+import ExtraSection from "./ExtraSection";
 
 
 const Home = () => {
@@ -17,7 +18,8 @@ return (
 
           </AllCards>)
         }
-        </div>                                                                                  
+        </div> 
+        <ExtraSection></ExtraSection>                                                                                 
  </div>
  );
 };

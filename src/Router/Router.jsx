@@ -7,6 +7,7 @@ import MyCart from "../Pages/MyCart";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import PrivateRouter from "./PrivateRouter";
+import Details from "../Pages/Details";
 
 const router = createBrowserRouter([
  {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
           {
             path:'/register',
             element:<Register></Register>
+          },
+          {
+            path:'/details',
+            element:<Details></Details>
           }                 
    ]
  }                             

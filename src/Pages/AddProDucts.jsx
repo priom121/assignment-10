@@ -12,6 +12,7 @@ const handleAdd =(e)=>{
   const description =form.description.value;
   const rating =form.rating.value;
   const user ={photo ,name,brand,type,price,description,rating};
+  const details = {photo ,name,brand,type,price,description,rating}
   console.log(user);
 
   // send data to server
@@ -32,6 +33,18 @@ const handleAdd =(e)=>{
         text: ' user added successfully',
       })
     }
+  })
+
+  fetch('http://localhost:5000/details',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify(details)
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data);
   })
 
 }
@@ -93,84 +106,7 @@ return (
 
 
 
-   </form>
-
-
-      {/* <form >
-                                 
-   <div className="md:flex gap-5 lg:w-1/2 md:w-1/2 mx-auto">
-                                 
-               <div className="form-control">
-               <label className="label">
-                     <span className="label-text">Coffee Name</span>
-                      </label>
-                         <label className="input-group">
-                             <input type="text" placeholder="coffee Name" name="name" className="input input-bordered w-full" />
-        </label>
-       </div>
- <div className="form-control lg:w-1/2 md:w-1/2 mx-auto">
-           <label className="label">
-           <span className="label-text">Available Quantity</span>
-                 </label>
-           <label className="input-group">
-               <input type="text" placeholder="quantity" name="quantity" className="input input-bordered w-full" />
-             </label>
-                  </div>
-               </div>
-                               
-         <div className="md:flex gap-5 lg:w-1/2 md:w-1/2 mx-auto">
-                                 
-     <div className="form-control">
-         <label className="label">
-         <span className="label-text">Supplier Name</span>
-         </label>
-       <label className="input-group">
-           <input type="text" placeholder="supplier Name" name="supplier" className="input input-bordered w-full" />
-           </label>
-          </div>
-                                 
-   <div className="form-control lg:w-1/2 md:w-1/2 mx-auto">
-             <label className="label">
-             <span className="label-text">Taste</span>
-         </label>
-             <label className="input-group">
-                     <input type="text" placeholder="taste" name="taste" className="input input-bordered w-full" />
-                 </label>
-                 </div>
-           </div>
-           <div className="md:flex gap-5 lg:w-1/2 md:w-1/2 mx-auto">
-                                 
-       <div className="form-control">
-                       <label className="label">
-           <span className="label-text">Category Name</span>
-             </label> <label className="input-group">
-                                     <input type="text" placeholder="Category" name="category" className="input input-bordered w-full" />
-             </label>
-               </div>
-           <div className="form-control lg:w-1/2 md:w-1/2 mx-auto">
-             <label className="label">
-         <span className="label-text">Details</span>
-         </label>
-                   <label className="input-group">
-         <input type="text" placeholder="details" name="details" className="input input-bordered w-full" />
-       </label>
-   </div>
-          </div>
-         <div className="md:flex gap-5 lg:w-1/2 md:w-1/2 mx-auto">
-                                 
- <div className="form-control w-full">
-           <label className="label">
-           <span className="label-text">Photo</span>
-           </label>
-              <label className="input-group w-full">
-                <input type="text" placeholder="Photo" name="photo" className="input input-bordered w-full " />
-           </label>
-                </div>
-                                 
-           </div>
-                           
-          <button className="btn mx-auto btn-primary bg-black mt-5 w-1/2 text-white">book</button> 
-           </form>                                                                                        */}
+   </form>   
  </div>
   );
 };
