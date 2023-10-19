@@ -1,8 +1,43 @@
+import Swal from "sweetalert2";
 
 const AddProDucts = () => {
+const handleAdd =(e)=>{
+  e.preventDefault()
+  const form = e.target
+  const photo = form.photo.value;
+  const name = form.name.value;
+  const brand = form.brand.value;
+  const type = form.type.value;
+  const price =form.price.value;
+  const description =form.description.value;
+  const rating =form.rating.value;
+  const user ={photo ,name,brand,type,price,description,rating};
+  console.log(user);
+
+  // send data to server
+  fetch('http://localhost:5000/automotive',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify(user)
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data);
+    if(data.insertedID){
+      Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: ' user added successfully',
+      })
+    }
+  })
+
+}
 return (
  <div className="bg-orange-200 rounded-xl py-10 mt-5 mb-5 max-w-screen-xl mx-auto">
-   <form >
+   <form onSubmit={handleAdd} >
    <label className="">
      <span className=" text-2xl mt-4 font-medium">Add Products </span>
         </label>
@@ -24,13 +59,13 @@ return (
         <div className="w-1/2 mx-auto mt-5 ">
         <span className="label-text text-base">Brand Name</span>
         <label className="input-group">
-       <input type="text" placeholder="brand  Name" name="name" className="input input-bordered w-full" />
+       <input type="text" placeholder="brand Name" name="brand" className="input input-bordered w-full" />
         </label>
         </div>
         <div className="w-1/2 mx-auto mt-5 ">
         <span className="label-text text-base">Type</span>
         <label className="input-group">
-       <input type="text" placeholder="type" name="name" className="input input-bordered w-full" />
+       <input type="text" placeholder="type" name="type" className="input input-bordered w-full" />
         </label>
         </div>
         <div className="w-1/2 mx-auto mt-5 ">
