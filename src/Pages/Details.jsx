@@ -1,5 +1,6 @@
 
 import { useLoaderData } from "react-router-dom";
+import Data from "./Data";
 
 
 
@@ -12,11 +13,10 @@ console.log(cards);
 
   <div>
 
-   <div>
-   {/* <h2>data:{data.length}</h2>
-    {
-       data.map(datas=><Data key={datas._id} datas={datas}></Data>)
-    } */}
+   <div className=" max-w-screen-xl mx-auto gap-5 mt-5 grid grid-cols-2">
+   {
+      cards.map(card=><Data key={card._id} card={card}></Data>)
+   }
 
    </div>                                                                             
  </div>
