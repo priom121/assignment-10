@@ -57,7 +57,7 @@ Login
  </>                          
 return (
 <div>
-<div className=" navbar bg-orange-100 p-6 shadow-xl text-black">
+<div className=" navbar bg-orange-100 p-4 shadow-xl text-black">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
