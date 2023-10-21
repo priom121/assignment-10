@@ -2,7 +2,7 @@ import FeedBack from "./FeedBack";
 
 const ExtraSection = () => {
  return (
- <div>
+ <div className="bg-blue-200">
      <h3 className="text-3xl py-10 font-semibold  text-center">WHY CHOOSE US</h3> 
 <div className=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
                               

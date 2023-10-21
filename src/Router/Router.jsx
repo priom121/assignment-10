@@ -27,7 +27,8 @@ const router = createBrowserRouter([
           },
           {
             path:'/myCart',
-            element:<PrivateRouter><MyCart></MyCart></PrivateRouter>
+            element:<PrivateRouter><MyCart></MyCart></PrivateRouter>,
+            loader:()=>fetch('https://automotive-server-gray.vercel.app/myCart')
           },
           {
             path:'/login',
