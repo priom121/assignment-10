@@ -8,6 +8,7 @@ import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import PrivateRouter from "./PrivateRouter";
 import Details from "../Pages/Details";
+import SeeDetails from "../Pages/SeeDetails";
 
 const router = createBrowserRouter([
  {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
           {
             path:'/',
             element:<Home></Home>,
-            loader:()=>fetch('http://localhost:5000/automotive')               
+            loader:()=>fetch('https://automotive-server-gray.vercel.app/automotive')               
           },
           {
             path:'/addProDucts',
@@ -39,7 +40,12 @@ const router = createBrowserRouter([
           {
             path:'/details/:brand',
             element:<Details></Details>,
-            loader: ({params})=>fetch(`http://localhost:5000/details/${params.brand}`)
+            loader: ({params})=>fetch(`https://automotive-server-gray.vercel.app/details/${params.brand}`)
+          },
+          {
+            path:'/seeDetails/:id',
+            element:<PrivateRouter><SeeDetails></SeeDetails></PrivateRouter>,
+            loader:({params})=>fetch(`https://automotive-server-gray.vercel.app/seeDetails/${params.id}`)
           }                 
    ]
  }                             

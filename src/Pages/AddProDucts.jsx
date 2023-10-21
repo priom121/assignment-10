@@ -16,7 +16,7 @@ const handleAdd =(e)=>{
   console.log(user);
 
   // send data to server
-  fetch('http://localhost:5000/automotive',{
+  fetch('https://automotive-server-gray.vercel.app/automotive',{
     method:'POST',
     headers:{
       'content-type':'application/json'
@@ -35,7 +35,7 @@ const handleAdd =(e)=>{
     }
   })
 
-  fetch('http://localhost:5000/details',{
+  fetch('https://automotive-server-gray.vercel.app/details',{
     method:'POST',
     headers:{
       'content-type':'application/json'
